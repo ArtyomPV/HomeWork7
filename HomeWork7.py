@@ -14,7 +14,39 @@
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да
 #     **Вывод:** Парам пам-пам
 # ================================================================================
+def shortsolution_task1():
+    """
+    на выполнение короткой записи ушло более 2-х часов
+    :return:
+    """
+    vowels = ['а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю', 'ё', 'е']
+    text = "пара-ра-рам рам-пам-папам па-ра-па-да"
+    text_split = text.split(" ")
+    counter = (list(map(len, map(lambda text1: list(filter(lambda x: x in vowels, text1)), text_split))))
+    print("Парам пам-пам" if all(x == counter[0] for x in counter) else "Пам парам")
 
+
+def longsolution_task1():
+    """
+    решение этой задачи заняло не больше 20 минут
+    :return:
+    """
+    text = "пара-ра-рам рам-пам-папам па-ра-па-да"
+    vowels = ['а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю', 'ё', 'е']
+    text_split = text.split(" ")
+    counters = [0]*len(text_split)
+    i = 0
+    for word in text_split:
+        for char in word:
+            if char in vowels:
+                # pass
+                counters[i] += 1
+        i += 1
+    print("Парам пам-пам" if all(x == counters[0] for x in counters) else "Пам парам")
+
+
+shortsolution_task1()
+longsolution_task1()
 # ================================================================================
 # Задача 36: Напишите функцию print_operation_table
 # (operation, num_rows=6, num_columns=6),
