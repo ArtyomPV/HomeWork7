@@ -70,5 +70,14 @@ longsolution_task1()
 # 5 10 15 20 25 30
 # 6 12 18 24 30 36
 # ================================================================================
+def solution_task2():
+    def do_operation(operation, a=6, b=6):
+        for x in range(1, a+1):
+            for y in range(1, b+1):
+                print("%2d" %operation(x, y), end=" ")
+            print()
+    do_operation(lambda x, y: x*y)
 
+
+solution_task2()
 # ================================================================================
